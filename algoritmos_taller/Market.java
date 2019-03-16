@@ -25,29 +25,29 @@ public class Market {
 		String amount_ = br.readLine();
 		int amount = Integer.parseInt(amount_);
 		bw.write("Products avaliable on the Store: "+"\n");
-		bw.flush();
+		
 		bw.write("1: MILK $15.000"+"\n");
-		bw.flush();
+		
 		bw.write("2: BREAD $7.000"+"\n");
-		bw.flush();
+		
 		bw.write("3: ORANGES $16.000"+"\n");
-		bw.flush();
+		
 		bw.write("4: COOKIES $11.000"+"\n");
-		bw.flush();
+		
 		bw.write("5: RICE $18.000"+"\n");
-		bw.flush();
+		
 		bw.write("6: LENTIL $9.000"+"\n");
-		bw.flush();
+		
 		bw.write("7: SHAMPOO $25.000"+"\n");
-		bw.flush();
+		
 		bw.write("8: SOAP $5.000"+"\n");
-		bw.flush();
+		
 		bw.write("9: CLOTHES SOAP $35.000"+"\n");
-		bw.flush();
+		
 		bw.write("10: SPONGE $10.000"+"\n");
-		bw.flush();
+	
 		bw.write("11: GLOVES(LATEX) $20.000"+"\n");
-		bw.flush();
+	
 		bw.write("Please select the products:"+"\n");
 		bw.flush();
 		for (int i = 0; i < amount; i++) {
