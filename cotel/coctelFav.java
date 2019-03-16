@@ -1,6 +1,6 @@
 package cotel;
 
-public class coctelFav extends preparacion{
+public class coctelFav{
 
 	private String nombre;
 	private String ingredientes1;

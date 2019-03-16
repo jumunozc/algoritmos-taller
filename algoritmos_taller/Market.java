@@ -1,10 +1,16 @@
 package algoritmos_taller;
-
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.*;
 
 public class Market {
 
-	Scanner sc = new Scanner(System.in);
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+	
 
 	private ArrayList<Products>productos;
 
@@ -13,85 +19,99 @@ public class Market {
 		productos = new ArrayList<Products>();
 	}
 
-	public void compras() {
-		System.out.println("Ingrese cantidad de productos: ");
-		int cant = sc.nextInt();
-		for (int i = 0; i < cant; i++) {
+	public void compras() throws IOException {
+		bw.write("Introduce the amount of products you wish: "+"\n");
+		bw.flush();
+		String amount_ = br.readLine();
+		int amount = Integer.parseInt(amount_);
+		bw.write("Products avaliable on the Store: "+"\n");
+		bw.flush();
+		bw.write("1: MILK $15.000"+"\n");
+		bw.flush();
+		bw.write("2: BREAD $7.000"+"\n");
+		bw.flush();
+		bw.write("3: ORANGES $16.000"+"\n");
+		bw.flush();
+		bw.write("4: COOKIES $11.000"+"\n");
+		bw.flush();
+		bw.write("5: RICE $18.000"+"\n");
+		bw.flush();
+		bw.write("6: LENTIL $9.000"+"\n");
+		bw.flush();
+		bw.write("7: SHAMPOO $25.000"+"\n");
+		bw.flush();
+		bw.write("8: SOAP $5.000"+"\n");
+		bw.flush();
+		bw.write("9: CLOTHES SOAP $35.000"+"\n");
+		bw.flush();
+		bw.write("10: SPONGE $10.000"+"\n");
+		bw.flush();
+		bw.write("11: GLOVES(LATEX) $20.000"+"\n");
+		bw.flush();
+		bw.write("Please select the products:"+"\n");
+		bw.flush();
+		for (int i = 0; i < amount; i++) {
+			String amountt = br.readLine();
+				int product = Integer.parseInt(amountt);
 
-			System.out.println("Productos disponibles en la tienda: ");
-			System.out.println("1: LECHE $15.000");
-			System.out.println("2: PAN $7.000");
-			System.out.println("3: NARANJAS $16.000");
-			System.out.println("4: GALLETAS $11.000");
-			System.out.println("5: ARROZ $18.000");
-			System.out.println("6: LENTEJAS $9.000");
-			System.out.println("7: SHAMPOO $25.000");
-			System.out.println("8: JABON $5.000");
-			System.out.println("9: DETERGENTE $35.000");
-			System.out.println("10: ESPONJAS $10.000");
-			System.out.println("11: GUANTES(LATEX) $20.000");
-			System.out.println("Favor seleccione los productos que desea llevar:");
-
-				int producto = sc.nextInt();
-
-				if(producto == 1) {
+				if(product == 1) {
 					Products item = new Products();
-					item.setNombre("LECHE");
+					item.setNombre("MILK");
 					item.setPrecio(15000);
 
 					productos.add(item);
-				}if(producto == 2) {
+				}if(product == 2) {
 					Products item = new Products();
-					item.setNombre("PAN");
+					item.setNombre("BREAD");
 					item.setPrecio(7000);
 
 					productos.add(item);
-				}if(producto == 3) {
+				}if(product == 3) {
 					Products item = new Products();
-					item.setNombre("NARANJAS");
+					item.setNombre("ORANGES");
 					item.setPrecio(16000);
 					productos.add(item);
-				}if(producto == 4) {
+				}if(product == 4) {
 					Products item = new Products();
-					item.setNombre("GALLETAS");
+					item.setNombre("COOKIES");
 					item.setPrecio(11000);
 					productos.add(item);
-				}if(producto == 5) {
+				}if(product == 5) {
 					Products item = new Products();
-					item.setNombre("ARROZ");
+					item.setNombre("RICE");
 					item.setPrecio(18000);
 
 					productos.add(item);
-				}if(producto == 6) {
+				}if(product == 6) {
 					Products item = new Products();
-					item.setNombre("LENTEJAS");
+					item.setNombre("LENTIL");
 					item.setPrecio(9000);
 
 					productos.add(item);
-				}if(producto == 7) {
+				}if(product == 7) {
 					Products item = new Products();
 					item.setNombre("SHAMPOO");
 					item.setPrecio(25000);
 					productos.add(item);
-				}if(producto == 8) {
+				}if(product == 8) {
 					Products item = new Products();
-					item.setNombre("JABON");
+					item.setNombre("SOAP");
 					item.setPrecio(5000);
 					productos.add(item);
-				}if(producto == 9) {
+				}if(product == 9) {
 					Products item = new Products();
-					item.setNombre("DETERGENTE");
+					item.setNombre("CLOTHES SOAP");
 					item.setPrecio(35000);
 
 					productos.add(item);
-				}if(producto == 10) {
+				}if(product == 10) {
 					Products item = new Products();
-					item.setNombre("ESPONJAS");
+					item.setNombre("SPONGE");
 					item.setPrecio(10000);
 					productos.add(item);
-				}if(producto == 11) {
+				}if(product == 11) {
 					Products item = new Products();
-					item.setNombre("GUANTES(LATEX)");
+					item.setNombre("GLOVES(LATEX)");
 					item.setPrecio(20000);
 					productos.add(item);
 				}
@@ -101,20 +121,22 @@ public class Market {
 		}
 	}
 	
-	public void showProducts() {
-		System.out.println("RECOPILACION DEL MERCADO");
-		int precioTotal = 0;
-		for (Products productoTemp: productos) {
+	public void showProducts() throws IOException {
+		System.out.println("MARKET DATA");
+		int finalPrice = 0;
+		for (Products productTemp: productos) {
 
-			if (productoTemp instanceof Products ) {
-				System.out.println("____________ PRODUCTO______________");
+			if (productTemp instanceof Products ) {
+				bw.write("____________ PRODUCT______________"+"\n");
+				bw.flush();
 			}
-			precioTotal += productoTemp.getPrecio();
-			productoTemp.datosProductos();
+			finalPrice += productTemp.getPrecio();
+			productTemp.datosProductos();
 			
 		}
 		System.out.println();
-		System.out.println("SU PRESUPUESTO DEBE DE SER MINIMO DE: $"+precioTotal+" PESOS");
+		bw.write("THE MINIMUM AMOUNT OF MONEY YOU REQUIRE TO BUY ALL OF THIS IS: $"+finalPrice+" PESOS");
+		bw.flush();
 
 	}
 

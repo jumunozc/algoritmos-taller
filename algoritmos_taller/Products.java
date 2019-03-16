@@ -1,12 +1,12 @@
 package algoritmos_taller;
 
-public class Products extends Market{
+public class Products {
 	private String nombre;
 	private int precio;
 	
 	public void datosProductos() {
-		System.out.println("NOMBRE: "+this.nombre);
-		System.out.println("PRECIO: $"+this.precio+" PESOS");
+		System.out.println("NAME: "+this.nombre);
+		System.out.println("PRICE: $"+this.precio+" PESOS");
 	}
 	public String getNombre() {
 		return nombre;

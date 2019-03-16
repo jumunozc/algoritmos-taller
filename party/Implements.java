@@ -1,6 +1,6 @@
 package party;
 
-public class Implements extends Party {
+public class Implements  {
 	
 	private String nameImplements;
 	private int amountImplements;
